@@ -1,11 +1,22 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 
-
 # Create your views here.
-def first_view(request):
+from beers.models import Beer
+
+
+def beer_detail_view(request, pk):
+
+    print("user", request.user)
+    print("GET", request.GET)
     context = {
-        'sample_var': "ejemplo",
-        'otra_cosa': [2,4,6]
+        'beer': Beer.objects.get(pk=pk)
     }
-    return render(request, "beers.html", context)
+    return render(request, "beer_detail.html", context)
+
+
+def beer_list_view(request):
+    context = {
+        'beer_list': Beer.objects.all()
+    }
+    return render(request, "beer_list.html", context)
