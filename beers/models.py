@@ -53,7 +53,7 @@ class Beer(CommonInfo):
         return self.abv > alcohol
 
 
-class SpecialIngredients(CommonInfo):
+class SpecialIngredient(CommonInfo):
     name = models.CharField('Name', max_length=50)
     beers = models.ManyToManyField(Beer, blank=True, related_name="special_ingredients")
 
