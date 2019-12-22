@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "bootstrap": "^4.4.0",
+    "jquery-slim": "^3.0.0",
     "popper.js": "^1.16.0"
   }
 }
