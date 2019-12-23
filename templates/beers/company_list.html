@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+    <div>
+        {{ bday }}
+        <br>
+{#        {%  now "jS F Y H:i" %}#}
+        <ul>
+            {% for company in company_list %}
+                <li>
+                    <a href="{% url 'company-detail-view' company.pk %}"> {{ company }}</a>
+                </li>
+            {% empty %}
+                Lista vacia de cosas
+            {% endfor %}
+        </ul>
+        <p>
+            <a href="{% url 'company-create-view' %}">Add</a>
+        </p>
+    </div>
+
+{% endblock %}

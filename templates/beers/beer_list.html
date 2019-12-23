@@ -4,22 +4,22 @@
 {% block content %}
 
     <div>
-    {{ bday }}
-    <br>
-    {%  now "jS F Y H:i" %}
+        {{ bday }}
+        <br>
+{#        {% now "jS F Y H:i" %}#}
         <ul>
             {% for beer in beer_list %}
-{#                <p>#}
-{#                {{ forloop }}#}
-{#                </p>#}
+                {#                <p>#}
+                {#                {{ forloop }}#}
+                {#                </p>#}
                 <li>
                     {% comment %}
                     {% if beer.abv > 2 %}
                     {% endcomment %}
                     <a href="{% url 'beer-detail-view' beer.pk %}"> {{ beer }}</a>
                 </li>
-                {% empty %}
-                    Lista vacia de cosas
+            {% empty %}
+                Lista vacia de cosas
             {% endfor %}
         </ul>
     </div>
