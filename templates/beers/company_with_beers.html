@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <h3>Create company and beers</h3>
+    <form method="post" action="">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <h4>Create beers</h4>
+        {{ beer_formset.as_p }}
+        <input type="submit">
+    </form>
+
+{% endblock content %}
