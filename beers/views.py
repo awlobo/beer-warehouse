@@ -1,3 +1,5 @@
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render, get_object_or_404
 from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView, UpdateView, CreateView
@@ -8,6 +10,10 @@ from beers.models import Beer, Company
 
 class BeerDetailView(DetailView):
     model = Beer
+
+    @login_required()
+    def dispatch(self, request, *args, **kwargs):
+        pass
 
 
 class BeerListView(ListView):
@@ -48,7 +54,7 @@ class CompanyAndBeersCreateView(CreateView):
         return super().form_valid(form)
 
 
-class CompanyEditView(UpdateView):
+class CompanyEditView(LoginRequiredMixin, UpdateView):
     model = Company
     form_class = CompanyForm
     success_url = reverse_lazy('company-list-view')
@@ -60,6 +66,20 @@ class CompanyDetailView(DetailView):
 
 class CompanyListView(ListView):
     model = Company
+
+    def get_context_data(self, **kwargs):
+        ctx = super().get_context_data(**kwargs)
+
+        self.request.session['counter'] = self.request.session.get('counter', 0) + 1
+
+        ctx['counter'] = self.request.session['counter']
+
+        return ctx
+
+
+@login_required(login_url='/login')
+def my_view(request):
+    print("hello")
 
 # print(beer_list.count())
 # print(beer_list.filter(id=1))

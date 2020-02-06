@@ -1,8 +1,10 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load i18n %}
 
 {% block content %}
 
+    <h2>{% trans "Companies" %}</h2>
     <div>
         {{ bday }}
         <br>
@@ -19,6 +21,9 @@
         <p>
             <a href="{% url 'company-create-view' %}">Add</a>
         </p>
+    <p>
+        {{ counter }}
+    </p>
     </div>
 
 {% endblock %}

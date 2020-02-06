@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'crispy_forms',
+    'rest_framework',
 
     "beers",
     "bars",
@@ -52,6 +53,10 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
+
+    # 'core.middlewares.simple_middleware'
+
 ]
 
 ROOT_URLCONF = 'beer_warehouse.urls'
@@ -131,3 +136,13 @@ MEDIA_ROOT = ''
 LOGIN_REDIRECT_URL = reverse_lazy('beer-list-view')
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAdminUser'
+    ],
+}
+
+LOCALE_PATHS = (
+    'beer_warehouse/locale/',
+)

@@ -1,12 +1,17 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load i18n %}
 
 {% block content %}
 
+    <h2>{% trans "Beers" %}</h2>
+    <h3>
+        {% blocktrans %}I love London tururururu{% endblocktrans %}
+    </h3>
     <div>
         {{ bday }}
         <br>
-{#        {% now "jS F Y H:i" %}#}
+        {% now "jS F Y H:i" %}
         <ul>
             {% for beer in beer_list %}
                 {#                <p>#}

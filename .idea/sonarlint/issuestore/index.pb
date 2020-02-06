@@ -44,3 +44,17 @@ J
 beer_warehouse/settings.py,5/b/5ba7cad45bc0b94f8c439a94a1f6ee16f1ab8acd
 W
 'templates/beers/company_with_beers.html,9/0/9070d3bd89181016be5e7bb0c21f9b51e9c1066e
+C
+core/middlewares.py,2/2/22ea38136b403f83fa5f0f80c3fc694ed953d4a2
+G
+beers/api/serializer.py,d/8/d8057920a786939c362d216671ab2be23cda6935
+B
+beers/api/views.py,8/c/8c4efada976364f321ce0cdb1ec8ae383a3107c3
+D
+beers/tests/tests.py,2/3/2328a300276fb5d927b484c1ad0cb859f990f1fa
+J
+beers/tests/test_models.py,f/5/f586ff15a9035a4d35750d70ad43431af6206190
+I
+beers/tests/test_views.py,f/0/f009c73dd1931b91f30e0415780d9d62434803c2
+^
+.beer_warehouse/locale/es/LC_MESSAGES/django.po,a/2/a255d86936cf42b2919ba0e1c1e2921b192e1a96
